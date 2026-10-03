@@ -1,0 +1,7 @@
+{
+  "name": "Phone",
+  "description": "iOS 26 Liquid Glass Phone and dialer app with translucent real backdrop blur, keypad, contacts, recents, and favorites.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
