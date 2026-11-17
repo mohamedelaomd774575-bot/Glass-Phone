@@ -1,0 +1,32 @@
+name: Build Liquid Music APK
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [liquid-music-android]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: liquid-music-player
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: 8.7
+
+      - name: Build debug APK
+        run: gradle assembleDebug --no-daemon
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: LiquidMusic-APK
+          path: liquid-music-player/app/build/outputs/apk/debug/app-debug.apk
